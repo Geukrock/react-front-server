@@ -1,0 +1,28 @@
+.selection-summary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .selection-summary-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #e0e0e0;   /* 연한 회색 테두리 */
+    border-radius: 4px;       /* 둥근 모서리 */
+    padding: 10px;
+    min-width: 150px;
+    background-color: #F5F5F5; /* 연한 배경색 */
+  }
+  
+  .selection-summary-item {
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+  }
+  
+  .selection-close-button{
+      background: none;
+      border: none;
+  }
