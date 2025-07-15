@@ -5,7 +5,6 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 // 제품 전체 조회
 export async function fetchProducts(): Promise<Product[]> {
-    console.log("TEST" + apiUrl);
     const response = await axios.get<Product[]>(`${apiUrl}/products`);
     return response.data;
 }

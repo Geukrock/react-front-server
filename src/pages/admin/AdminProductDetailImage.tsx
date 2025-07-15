@@ -82,7 +82,7 @@ function AdminProductDetailImage() {
                     <div className="col-12 mb-4 d-flex justify-content-center" key={detailImage.id}>
                         <div className="card d-flex align-items-center" style={{ maxWidth: '300px', width: '100%' }}>
                             <img
-                                src={`http://localhost:8070/images/${detailImage.detailImageUrl}`}
+                                src={`${process.env.REACT_APP_API_URL}/images/${detailImage.detailImageUrl}`}
                                 alt={`상세 이미지 ${idx + 1}`}
                                 className="img-fluid rounded"
                             />

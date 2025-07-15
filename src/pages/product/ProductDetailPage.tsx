@@ -29,7 +29,7 @@ function ProductDetailPage() {
       <div className="row">
         <div className="col-md-6">
           <img
-            src={`http://localhost:8070/images/${productDetail.thumbnailUrl}`}
+            src={`${process.env.REACT_APP_API_URL}/images/${productDetail.thumbnailUrl}`}
             alt={productDetail.name}
             className="img-fluid rounded"
             style={{ maxHeight: "500px", objectFit: "cover" }}
@@ -68,7 +68,7 @@ function ProductDetailPage() {
         {productDetail.detailImageUrls.map((url, idx) => (
           <div key={idx} className="col-12 mb-4 d-flex justify-content-center">
             <img
-              src={`http://localhost:8070/images/${url}`}
+              src={`${process.env.REACT_APP_API_URL}/images/${url}`}
               alt={`상세 이미지 ${idx + 1}`}
               className="img-fluid rounded"
               style={{ maxWidth: "1000px" }}

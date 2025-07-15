@@ -21,7 +21,7 @@ function ProductList(){
                     <div className="thumbnail-head">
                       <img
                         className="thumbnail-image"
-                        src={"http://localhost:8070/images/" + product.thumbnailUrl}
+                        src={`${process.env.REACT_APP_API_URL}/images/` + product.thumbnailUrl}
                         alt="상품 이미지 준비 중"
                       />
                     </div>

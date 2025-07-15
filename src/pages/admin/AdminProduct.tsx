@@ -82,7 +82,7 @@ function AdminProduct() {
                   <td>
                     <img
                       className="tumbnailImage"
-                      src={"http://localhost:8070/images/" + product.thumbnailUrl} alt="썸네일 없음" />
+                      src={`${process.env.REACT_APP_API_URL}/images/` + product.thumbnailUrl} alt="썸네일 없음" />
                   </td>
                   <td>{product.selling ? '판매 중' : '판매 중지'}</td>
                 </tr>
