@@ -24,10 +24,15 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Copy build files to EC2
-        run: |
-          scp -r -i ${{ secrets.EC2_SSH_KEY }} build/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/home/***/app/
-      
+      - name: Upload build folder to EC2
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "build/*"
+          target: "/home/${{ secrets.EC2_USER }}/app"
+
       - name: Restart web server on EC2 (optional)
         uses: appleboy/ssh-action@v0.1.6
         with:
