@@ -51,3 +51,11 @@ export async function deleteDetailImage(id:number){
     await axios.delete(`${apiUrl}/products/detail-images/${id}`);
 };
 
+// 상세 이미지 시퀀스 수정
+export async function updateDetailImageSequence(detailImageId: number, newSequence: number) {
+    await axios.put(
+      `${apiUrl}/products/detail-images/${detailImageId}/sequence`,
+      { sequence: newSequence }
+    );
+  }
+

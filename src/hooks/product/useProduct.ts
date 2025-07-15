@@ -99,6 +99,15 @@ export function useProduct() {
     }
   };
 
+  // 상세 이미지 시퀀스 수정
+  const onUpdateDetailImageSequence = async (detailImageId: number, newSequence: number) => {
+    try {
+      await PrdouctApi.updateDetailImageSequence(detailImageId, newSequence);
+    } catch (error) {
+      console.log("상세 이미지 시퀀스 수정 오류: " + error);
+    }
+  }
+
   return {
     products,
     productDetail,
@@ -112,5 +121,6 @@ export function useProduct() {
     onLoadDetailImages,
     onDeleteDetailImage,
     onCreateDetailImages,
+    onUpdateDetailImageSequence,
   };
 }

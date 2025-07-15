@@ -20,6 +20,7 @@ function AdminProductDetailImage() {
         onLoadDetailImages,
         onDeleteDetailImage,
         onCreateDetailImages,
+        onUpdateDetailImageSequence,
     } = useProduct();
 
     useEffect(() => {
@@ -48,11 +49,25 @@ function AdminProductDetailImage() {
     };
 
     const handleDeleteImage = async (detailImageId: Number) => {
-        try {
-            await onDeleteDetailImage(Number(detailImageId));
-            await onLoadDetailImages(Number(id));
-        } catch (error) {
-            console.error("이미지 업로드 또는 목록 조회 실패:", error);
+        if (window.confirm("정말 삭제하시겠습니까?")) {
+            try {
+                await onDeleteDetailImage(Number(detailImageId));
+                await onLoadDetailImages(Number(id));
+            } catch (error) {
+                console.error("이미지 삭제 오류: ", error);
+            }
+        }
+    };
+
+    const handleEditSequence = async (thumbnailId: number) => {
+        const newSequence = window.prompt("변경할 순서를 입력해주세요.");
+        if(newSequence != null){
+            try {
+                await onUpdateDetailImageSequence(thumbnailId, Number(newSequence));
+                await onLoadDetailImages(Number(id));
+            } catch (error) {
+                console.error("이미지 시퀀스 수정 실패: ", error)
+            }
         }
     };
 
@@ -80,29 +95,25 @@ function AdminProductDetailImage() {
             <div className="row">
                 {detailImageUrls.map((detailImage, idx) => (
                     <div className="col-12 mb-4 d-flex justify-content-center" key={detailImage.id}>
-                        <div className="card d-flex align-items-center" style={{ maxWidth: '300px', width: '100%' }}>
+                        <div className="card d-flex align-items-center" style={{ maxWidth: '500px', width: '100%' }}>
                             <img
                                 src={`${process.env.REACT_APP_API_URL}/images/${detailImage.detailImageUrl}`}
                                 alt={`상세 이미지 ${idx + 1}`}
                                 className="img-fluid rounded"
                             />
-                            <div className="d-flex justify-content-between align-items-center w-100 px-3">
-                                <div className="d-flex gap-1">
-                                    {/* <button
-                                        className="btn btn-success btn-sm"
-                                        onClick={() => handleDeleteImage(detailImage.id)}
-                                    >
-                                        ▲
-                                    </button>3
+                            <div className="d-flex justify-content-between align-items-center w-100 mt-1">
+                                <div>
                                     <button
-                                        className="btn btn-success btn-sm"
-                                        onClick={() => handleDeleteImage(detailImage.id)}
+                                        className="btn btn-primary btn-lg me-1"
+                                        onClick={() => handleEditSequence(detailImage.id)}
                                     >
-                                        ▼
-                                    </button> */}
+                                        수정
+                                    </button>
+                                    <strong>{"순서: " + detailImage.sequence}</strong>
                                 </div>
+
                                 <button
-                                    className="btn btn-danger btn-sm"
+                                    className="btn btn-danger btn-lg"
                                     onClick={() => handleDeleteImage(detailImage.id)}
                                 >
                                     삭제
