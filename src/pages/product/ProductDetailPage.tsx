@@ -19,8 +19,9 @@ function ProductDetailPage() {
     if (id) {
       onLoadProductDetail(Number(id));
     }
-  }, [id,onLoadProductDetail] );
+  }, [id] );
 
+  console.log("랜더링됨")
   if (!productDetail) return <p>상품 정보를 불러올 수 없습니다.</p>;
 
   return (
