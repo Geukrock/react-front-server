@@ -27,16 +27,16 @@ function ProductDetailPage() {
   return (
     <div className="container-fluid py-5">
       {/* 제품 썸네일 및 정보 */}
-      <div className="row">
-        <div className="col-md-6">
+      <div className="row justify-content-center">
+        <div className="col-md-5">
           <img
             src={`${process.env.REACT_APP_API_URL}/images/${productDetail.thumbnailUrl}`}
             alt={productDetail.name}
             className="img-fluid rounded"
-            style={{ maxHeight: "500px", objectFit: "cover" }}
+            style={{ maxHeight: "600px", objectFit: "cover" }}
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-5">
           <h2>{productDetail.name}</h2>
           <h4 className="text-muted mt-2">
             가격: {productDetail.price.toLocaleString()}원
@@ -55,7 +55,7 @@ function ProductDetailPage() {
               <button 
               className="btn btn-dark btn" 
               style={{width:"100%", fontSize: "25px"}}
-              onClick={()=> window.open("https://forms.gle/C28X7tNS1eBA9Vu97")}
+              onClick={()=> window.open("https://forms.gle/C28X7tNS1eBA9Vu97")} // 구글 폼으로 이동
               >신청하기
               </button>
             </div>
