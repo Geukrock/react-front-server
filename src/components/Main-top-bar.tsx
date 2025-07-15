@@ -12,16 +12,16 @@ function Header() {
 
       <div className="top-btn-container">
         {/* form 태그 대신 Link로 대체 */}
-        <Link to="/admin" className="top-text-btn">관리자 페이지</Link>
+        {/* <Link to="/admin" className="top-text-btn">관리자 페이지</Link> */}
         <Link to="/products" className="top-text-btn">크루티 구매</Link>
 
         {/* 외부 링크는 버튼 + onClick으로 새창 열기 */}
-        <button
+        {/* <button
           className="top-text-btn"
           onClick={() => window.open('https://docs.google.com/spreadsheets/d/1O0tRuobf80P91Hz_pd3MkhvR1dIzF9Oj8Un0jr3a6Jc/edit?gid=743911786#gid=743911786')}
         >
           회원 관리
-        </button>
+        </button> */}
 
         <button
           className="top-btn"
