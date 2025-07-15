@@ -30,11 +30,12 @@
 /* 기본: PC용 (오른쪽 하단, 너비 300px) */
 .fixed-button {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
-  width: 200px;
+  bottom: 50px;
+  right: 50px;
+  width: 250px;
   font-size: 25px;
   z-index: 1050;
+  font-size: 35px;
 }
 
 /* 모바일: 너비 100%, 좌우 꽉 채움 */
