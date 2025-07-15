@@ -16,7 +16,7 @@ function ProductList(){
     },[]);
 
     return (
-        <div className="container py-5 px-5">
+        <div className="container-fluid py-5">
           <div className="row g-2">
             {products.map((product) => (
               <div className="col-12 col-md-6 col-lg-4" key={product.id}>

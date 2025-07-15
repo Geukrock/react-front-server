@@ -25,7 +25,7 @@ function ProductDetailPage() {
   if (!productDetail) return <p>상품 정보를 불러올 수 없습니다.</p>;
 
   return (
-    <div className="container py-5">
+    <div className="container-fluid py-5">
       {/* 제품 썸네일 및 정보 */}
       <div className="row">
         <div className="col-md-6">
@@ -43,7 +43,7 @@ function ProductDetailPage() {
           </h4>
           <div className="mt-3">
             <span
-              className={`badge ${productDetail.selling ? "bg-success" : "bg-secondary"
+              className={`badge fs-5 ${productDetail.selling ? "bg-success" : "bg-secondary"
                 }`}
             >
               {productDetail.selling ? "신청 가능" : "신청 마감"}
@@ -53,8 +53,8 @@ function ProductDetailPage() {
             <hr className="my-5" />
             <div className="d-flex justify-content-start">
               <button 
-              className="btn btn-dark btn btn-lg" 
-              style={{width:"100%"}}
+              className="btn btn-dark btn" 
+              style={{width:"100%", fontSize: "25px"}}
               onClick={()=> window.open("https://forms.gle/C28X7tNS1eBA9Vu97")}
               >신청하기
               </button>
