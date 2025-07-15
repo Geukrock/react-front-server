@@ -1,0 +1,39 @@
+name: React CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Copy build files to EC2
+        run: |
+          scp -r -i ${{ secrets.EC2_SSH_KEY }} build/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/home/***/app/
+      
+      - name: Restart web server on EC2 (optional)
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            sudo systemctl restart nginx

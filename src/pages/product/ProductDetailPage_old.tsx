@@ -12,7 +12,7 @@ import QuantityControl from "components/QuantityControl";
 function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
   const [selectedItems, setSelectedItems] = useState<Record<string, string>[]>([]);
-
+  
   const {
     productDetail,
     onLoadProductDetail,
@@ -57,14 +57,41 @@ function ProductDetailPage() {
           </div>
           <div>
             <hr className="my-5" />
-            <div className="d-flex justify-content-start">
-              <button 
-              className="btn btn-dark btn btn-lg" 
-              style={{width:"100%"}}
-              onClick={()=> window.open("https://forms.gle/C28X7tNS1eBA9Vu97")}
-              >신청하기
-              </button>
-            </div>
+            <ProductSelector
+              items={[
+                { initialLabel: "사이즈 선택", label: "사이즈", options: ["S", "M", "L"] },
+                { initialLabel: "색상 선택", label: "색상", options: ["검정", "흰색"] },
+              ]}
+              onComplete={handleSelectorComplete}
+            />
+          </div>
+          <div className="selection-summary-list">
+            {/* 선택된 아이템 항목 */}
+            {selectedItems.map((sel, idx) => (
+              <div key={idx} className="selection-summary-box">
+                <div className="d-flex justify-content-between">
+                  <strong>{Object.values(sel).join(" · ")}</strong>
+                  <button className="selection-close-button">X</button>
+                </div>
+                <div className="d-flex justify-content-between">
+                  < QuantityControl />
+                  <strong>{productDetail.price.toLocaleString()}원</strong>
+                </div>
+              </div>
+            ))}
+            {/* 합계 및 신청 버튼 */}
+            {selectedItems.length > 0 && (
+              <div>
+                <hr className="my-3" />
+                <div className="d-flex justify-content-between mb-3 container">
+                  <strong>총 {selectedItems.length}개</strong>
+                  <strong>{(productDetail.price * selectedItems.length).toLocaleString()}원</strong>
+                </div>
+                <div className="d-flex justify-content-end">
+                  <button className="btn btn-dark btn btn-lg">신청하기</button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
