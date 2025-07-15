@@ -19,13 +19,25 @@ function ProductDetailPage() {
     if (id) {
       onLoadProductDetail(Number(id));
     }
-  }, [id] );
+  }, [id]);
+
+  const openGoogleForm = () => {
+    window.open("https://forms.gle/C28X7tNS1eBA9Vu97");
+  };
 
   console.log("랜더링됨")
   if (!productDetail) return <p>상품 불러오는 중</p>;
 
   return (
     <div className="container-fluid py-5">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <button
+        className="btn btn-dark fixed-button shadow"
+        onClick={openGoogleForm}
+      >
+        신청하기
+      </button>
+
       {/* 제품 썸네일 및 정보 */}
       <div className="row justify-content-center">
         <div className="col-md-5">
@@ -52,10 +64,10 @@ function ProductDetailPage() {
           <div>
             <hr className="my-5" />
             <div className="d-flex justify-content-start">
-              <button 
-              className="btn btn-dark btn" 
-              style={{width:"100%", fontSize: "25px"}}
-              onClick={()=> window.open("https://forms.gle/C28X7tNS1eBA9Vu97")} // 구글 폼으로 이동
+              <button
+                className="btn btn-dark btn"
+                style={{ width: "100%", fontSize: "25px" }}
+                onClick={openGoogleForm} // 구글 폼으로 이동
               >신청하기
               </button>
             </div>
@@ -65,7 +77,7 @@ function ProductDetailPage() {
       <hr className="my-5" />
 
       {/* 상세 이미지 */}
-      <div className="row" style={{gap: "200px", margin:"0px 0px 300px 0px"}}>
+      <div className="row" style={{ gap: "200px", margin: "0px 0px 300px 0px" }}>
         {productDetail.detailImageUrls.map((url, idx) => (
           <div key={idx} className="col-12 mb-4 d-flex justify-content-center" >
             <img
