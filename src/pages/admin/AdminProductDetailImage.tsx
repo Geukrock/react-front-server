@@ -24,7 +24,7 @@ function AdminProductDetailImage() {
 
     useEffect(() => {
         onLoadDetailImages(Number(id));
-    }, [id])
+    }, [id, onLoadDetailImages])
 
     const triggerFileInput = () => {
         fileInputRef.current?.click();

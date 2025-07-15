@@ -41,9 +41,6 @@ export async function fetchDetailImageUrls(id:number) : Promise<DetailImageUrl[]
 
 // 상세 이미지 추가(배열)
 export async function addDetailImages(id:number, formData: FormData) {
-    const config = {
-        headers: { "Content-Type": "multipart/form-data" },
-    };
     const response = await axios.post(`http://localhost:8070/products/${id}/detail-images`,formData);
     return response.data;
 }

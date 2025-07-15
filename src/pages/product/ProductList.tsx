@@ -6,7 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './productList.css';
 
 function ProductList(){
-    const {products, loading} = useProduct();
+    const {products} = useProduct();
 
     return (
         <div className="container py-5 px-5">
