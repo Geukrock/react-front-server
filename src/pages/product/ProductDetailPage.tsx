@@ -65,9 +65,9 @@ function ProductDetailPage() {
       <hr className="my-5" />
 
       {/* 상세 이미지 */}
-      <div className="row">
+      <div className="row" style={{gap: "200px"}}>
         {productDetail.detailImageUrls.map((url, idx) => (
-          <div key={idx} className="col-12 mb-4 d-flex justify-content-center">
+          <div key={idx} className="col-12 mb-4 d-flex justify-content-center" >
             <img
               src={`${process.env.REACT_APP_API_URL}/images/${url}`}
               alt={`상세 이미지 ${idx + 1}`}
