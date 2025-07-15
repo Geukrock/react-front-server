@@ -30,13 +30,12 @@ function ProductDetailPage() {
 
   return (
     <div className="container-fluid py-5">
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <button
+      {/* <button
         className="btn btn-dark fixed-button shadow"
         onClick={openGoogleForm}
       >
         신청하기
-      </button>
+      </button> */}
 
       {/* 제품 썸네일 및 정보 */}
       <div className="row justify-content-center">
