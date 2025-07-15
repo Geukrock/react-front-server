@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductAdminHeader from "components/ProductAdminHeader";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -15,11 +15,17 @@ function AdminProduct() {
 
   const {
     products,
+    onLoadProducts,
     onCreateProduct,
     onUpdateProduct,
     onDeleteProduct,
   } = useProduct();
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+
+  useEffect(() => {
+    onLoadProducts();
+  }, []);
+
 
   const openEditModal = (product: Product) => {
     setEditingProduct(product);
@@ -32,7 +38,7 @@ function AdminProduct() {
     }, 0);
   };
 
-  console.log(products);
+
   return (
     <>
       <ProductAdminHeader />

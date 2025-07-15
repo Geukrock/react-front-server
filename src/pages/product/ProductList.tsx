@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useProduct } from "hooks/product/useProduct";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,7 +6,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './productList.css';
 
 function ProductList(){
-    const {products} = useProduct();
+    const {
+      products,
+      onLoadProducts
+    } = useProduct();
+
+    useEffect(()=>{
+      onLoadProducts();
+    },[]);
 
     return (
         <div className="container py-5 px-5">

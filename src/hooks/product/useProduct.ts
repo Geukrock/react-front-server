@@ -10,7 +10,7 @@ export function useProduct() {
   const [loading, setLoading] = useState(false);
 
   // 제품 목록 조회
-  const loadProducts = async () => {
+  const onLoadProducts = async () => {
     setLoading(true);
     try {
       const data = await PrdouctApi.fetchProducts();
@@ -39,7 +39,7 @@ export function useProduct() {
   const onDeleteProduct = async (id: number) => {
     try {
       await PrdouctApi.deleteProduct(id);
-      await loadProducts(); // 삭제 후 목록 새로고침
+      await onLoadProducts(); // 삭제 후 목록 새로고침
     } catch (error) {
       console.error("제품 삭제 오류:", error);
     }
@@ -49,7 +49,7 @@ export function useProduct() {
   const onUpdateProduct = async (formData: FormData) => {
     try {
       await PrdouctApi.updateProduct(formData);
-      await loadProducts();
+      await onLoadProducts();
     } catch (error) {
       console.error("제품 수정 오류:", error);
     } finally {
@@ -61,7 +61,7 @@ export function useProduct() {
   const onCreateProduct = async (formData: FormData) => {
     try {
       await PrdouctApi.createProduct(formData);
-      await loadProducts();
+      await onLoadProducts();
     } catch (error) {
       console.error("제품 등록 오류:", error);
       throw error;
@@ -99,16 +99,12 @@ export function useProduct() {
     }
   };
 
-  useEffect(() => {
-    loadProducts();
-  }, []);
-
   return {
     products,
     productDetail,
     detailImageUrls,
     loading,
-    loadProducts,
+    onLoadProducts,
     onDeleteProduct,
     onUpdateProduct,
     onCreateProduct,
