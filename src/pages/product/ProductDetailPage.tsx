@@ -65,7 +65,7 @@ function ProductDetailPage() {
       <hr className="my-5" />
 
       {/* 상세 이미지 */}
-      <div className="row" style={{gap: "200px"}}>
+      <div className="row" style={{gap: "200px", margin:"0px 0px 300px 0px"}}>
         {productDetail.detailImageUrls.map((url, idx) => (
           <div key={idx} className="col-12 mb-4 d-flex justify-content-center" >
             <img
