@@ -24,6 +24,15 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Clean old build on EC2
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            rm -rf /home/${{ secrets.SSH_USER }}/app/build/*
+      
       - name: Upload build folder to EC2
         uses: appleboy/scp-action@v0.1.4
         with:
