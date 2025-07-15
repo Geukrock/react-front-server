@@ -22,7 +22,7 @@ function ProductDetailPage() {
   }, [id] );
 
   console.log("랜더링됨")
-  if (!productDetail) return <p>상품 정보를 불러올 수 없습니다.</p>;
+  if (!productDetail) return <p>상품 불러오는 중</p>;
 
   return (
     <div className="container-fluid py-5">

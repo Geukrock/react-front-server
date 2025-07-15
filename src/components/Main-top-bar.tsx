@@ -14,7 +14,7 @@ function Header() {
         {/* form 태그 대신 Link로 대체 */}
         <Link to="/admin" className="top-text-btn">관리자 페이지</Link>
         <Link to="/products" className="top-text-btn">크루티 구매</Link>
-         
+
         {/* 외부 링크는 버튼 + onClick으로 새창 열기 */}
         <button
           className="top-text-btn"
