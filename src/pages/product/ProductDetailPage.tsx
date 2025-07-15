@@ -1,17 +1,14 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useProduct } from "hooks/product/useProduct";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import ProductSelector from "components/ProductSelector";
 import './productDetailPage.css';
-import QuantityControl from "components/QuantityControl";
 
 
 function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
-  const [selectedItems, setSelectedItems] = useState<Record<string, string>[]>([]);
 
   const {
     productDetail,
@@ -22,11 +19,7 @@ function ProductDetailPage() {
     if (id) {
       onLoadProductDetail(Number(id));
     }
-  }, [id]);
-
-  const handleSelectorComplete = (selectedItems: Record<string, string>[]) => {
-    setSelectedItems(selectedItems);
-  };
+  }, [id,onLoadProductDetail] );
 
   if (!productDetail) return <p>상품 정보를 불러올 수 없습니다.</p>;
 
