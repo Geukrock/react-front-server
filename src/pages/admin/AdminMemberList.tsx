@@ -29,7 +29,7 @@ function AdminMemberList() {
                 return diffDays > 30;
             }
         })
-        : members;
+        : members.sort((a,b) => b.joinCount - a.joinCount);
 
     return (
         <>
