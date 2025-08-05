@@ -63,7 +63,7 @@ function AdminMemberList() {
                         className="btn btn-primary"
                         onClick={syncMembers}
                     >
-                        업데이트
+                        맴버 업데이트
                     </button>
                 </div>
 
