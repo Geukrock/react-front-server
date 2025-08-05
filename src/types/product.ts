@@ -4,13 +4,13 @@ export interface Product {
     price: number;
     selling: Boolean;
     thumbnailUrl: string;
-  }
+}
 
-export interface ProductDetail extends Product{
+export interface ProductDetail extends Product {
     detailImageUrls: string[];
 }
 
-export interface DetailImageUrl{
+export interface DetailImageUrl {
     id: number;
     productId: number;
     detailImageUrl: string;

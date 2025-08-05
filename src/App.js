@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Main-top-bar';
-import Home from './pages/Home';
 import AdminList from './pages/admin/AdminList';
 import AdminProduct from './pages/admin/AdminProduct'
 import AdminProductDetailImage from './pages/admin/AdminProductDetailImage';
+import AdminMemberList from './pages/admin/AdminMemberList';
 import ProductList from './pages/product/ProductList';
 import ProductDetailPage from './pages/product/ProductDetailPage';
+
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/admin/products/:id/detail-images" element={<AdminProductDetailImage />} />
         <Route path="/products" element={<ProductList />}/>
         <Route path="/products/:id" element={<ProductDetailPage />} />
+        <Route path='/admin/members' element={<AdminMemberList/>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './adminProduct.css';
-import { useProduct } from "hooks/product/useProduct";
+import { useProduct } from "hooks/useProduct";
 import { useParams } from 'react-router-dom';
 import React, { ChangeEvent, useEffect, useRef } from "react";
 import "./AdminProductDetailImage.css";

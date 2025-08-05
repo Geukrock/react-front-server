@@ -1,7 +1,7 @@
 
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useProduct } from "hooks/product/useProduct";
+import { useProduct } from "hooks/useProduct";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './productDetailPage.css';

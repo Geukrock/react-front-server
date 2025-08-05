@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Modal } from 'bootstrap';
 import './adminProduct.css';
 import ProductModal from "components/ProductModal";
-import { useProduct } from "hooks/product/useProduct";
+import { useProduct } from "hooks/useProduct";
 import { Product } from "types/product";
 import { useNavigate } from 'react-router-dom';
 

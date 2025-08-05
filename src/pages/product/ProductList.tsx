@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useProduct } from "hooks/product/useProduct";
+import { useProduct } from "hooks/useProduct";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
