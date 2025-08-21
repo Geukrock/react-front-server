@@ -2,8 +2,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useProduct } from "hooks/useProduct";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './productDetailPage.css';
 
 
@@ -29,7 +27,7 @@ function ProductDetailPage() {
   if (!productDetail) return <p>상품 불러오는 중</p>;
 
   return (
-    <div className="container-fluid py-5">
+    <div className="container">
       <button
         className="btn btn-dark fixed-button shadow"
         onClick={openGoogleForm}
@@ -39,17 +37,18 @@ function ProductDetailPage() {
 
       {/* 제품 썸네일 및 정보 */}
       <div className="row justify-content-center">
-        <div className="col-md-5">
+        <div className="col-md-5 mb-3">
           <img
+            className="rounded h-[400px] object-cover"
             src={`${process.env.REACT_APP_API_URL}/images/${productDetail.thumbnailUrl}`}
             alt={productDetail.name}
-            className="img-fluid rounded"
-            style={{ maxHeight: "600px", objectFit: "cover" }}
           />
         </div>
         <div className="col-md-5">
-          <h2>{productDetail.name}</h2>
-          <h4 className="text-muted mt-2">
+          <h2 className="text-2xl md:text-2xl">
+            {productDetail.name}
+          </h2>
+          <h4 className="text-muted mt-2 text-base md:text-lg">
             가격: {productDetail.price.toLocaleString()}원
           </h4>
           <div className="mt-3">

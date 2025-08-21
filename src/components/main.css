@@ -1,0 +1,16 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.top-btn{
+    @apply
+    flex
+    items-center
+    justify-center
+    w-[40px] md:w-[60px]
+    h-[40px] md:h-[60px]
+    rounded-xl
+    overflow-hidden
+    shadow-[0_6px_4px_rgba(0,0,0,0.3)]
+    outline-none;
+}

@@ -29,11 +29,14 @@ function AdminMemberList() {
                 return diffDays > 30;
             }
         })
-        : members.sort((a,b) => b.joinCount - a.joinCount);
+        : members.sort((a, b) => b.joinCount - a.joinCount);
 
     return (
         <>
             <div className="container">
+                <header className="text-center">
+                    <h1 className="mb-5">회원관리 페이지</h1>
+                </header>
 
                 {/* 탭 버튼 */}
                 <ul className="nav nav-tabs mb-3">
@@ -56,16 +59,16 @@ function AdminMemberList() {
                 </ul>
 
                 <div className='text-center'>
-                    <p>매일 23:55분에 갱신됨</p>
+                    <p>10분 주기로 갱신</p>
                 </div>
-                <div className="d-flex justify-content-end mb-3">
+                {/* <div className="d-flex justify-content-end mb-3">
                     <button
                         className="btn btn-primary"
                         onClick={syncMembers}
                     >
                         맴버 업데이트
                     </button>
-                </div>
+                </div> */}
 
                 {/* 멤버 리스트 */}
                 <div>
